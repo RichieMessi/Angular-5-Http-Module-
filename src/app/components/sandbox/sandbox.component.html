@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angular Forms Module</title>
+</head>
+<body>
+    
+
+    <div class="container">                         <!-- container starts -->
+            <div class="jumbotron">                 <!-- Jumbotron div  starts -->
+                <div class="container"> 
+                    <h1 class="display-3"><u>Angular 5</u></h1>
+                    <p class="lead">Consming Api with Http Module</p>
+                    <small>Used Http Module, Angular Services, Bootstrap 4</small>
+                </div>
+            </div>  <!-- Jumbotron div  ends -->
+
+
+
+        <p><a href="https://jsonplaceholder.typicode.com" target="_blank">API website: </a></p>  <!-- Link to the API -->
+
+        <button class="btn btn-success"><a href="https://jsonplaceholder.typicode.com" target="_blank">Go to API </a></button><br><br><br>  <!-- Link to the API -->
+        <button class="btn btn-info"><a href="https://github.com/RichieMessi" target="_blank">Github Code</a></button><br><br><br>   <!-- Link to github code -->
+    
+        <form (submit)="onSubmit(isEdit)">                                                        <!-- Form Begins -->
+            <div class="form-group">
+
+            <!-- Name Section -->
+                <label>Name</label>
+                <input type="text" class="form-control" [(ngModel)] = "user.name" name="name">
+            </div>
+    
+
+            <!-- Email Section -->
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" [(ngModel)] = "user.email" name="email">
+            </div>
+    
+
+            <!-- Phone Section -->
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" [(ngModel)] = "user.phone" name="phone">
+            </div>
+            <button class="btn btn-warning" type="submit">Submit</button><br><br>
+    
+        </form>  <!-- Form Ends -->
+
+
+
+            <!-- Loop through the contents -->
+        <div *ngFor="let user of users" class="well">
+            <ul class="list-group">
+                <li class="list-group-item">Name: {{user.name}} </li>
+                <li class="list-group-item">Email: {{user.email}} </li>
+                <li class="list-group-item">Phone: {{user.phone}} </li>
+            </ul>
+                <br>
+            <button (click) = "onEditClick(user)" class="btn btn-info">Edit</button>
+            <button (click) = "onDeleteClick(user.id)" class="btn btn-danger">Delete</button>
+        </div>
+    </div> <!-- container ends -->
+</body>
+</html>
